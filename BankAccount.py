@@ -1,17 +1,19 @@
-import random
+
 class BankAccount():
+
+    import random
     # Attributes
     bank_name = "Chase"
-    _accountNumber = None
-    __routingNumber = None
+    _accountNumber = int(random.random()*100000)+1
+    __routingNumber = int(random.random()*100000)+1
 
     #Constructors
     def __init__(self,name=str,bal=int,minbal=int,):
         self.customer_name = name
         self.current_balance = bal
         self.minimum_balance = minbal
-        self._accountNumber = random.random()*1024+1
-        self.__routingNumber = random.random()*1024+1
+        self._accountNumber = (random.random()*1024)+1
+        self.__routingNumber = (random.random()*1024)+1
 
     # Methods
     def deposit(self,amt):
@@ -22,7 +24,7 @@ class BankAccount():
         else: print("Balance has been overdrawn.")
 
     def print_customer_information(self):
-        print (f"{self.bank_name}Bank Records\nCustomer: {self.customer_name} \nBalance: {self.current_balance} \nAccount Number: {self._accountNumber}\nRouting Number: {self.__routingNumber}")
+        print (f"{self.bank_name} Bank Records\nCustomer: {self.customer_name} \nBalance: {self.current_balance} \nAccount Number: {self._accountNumber}\nRouting Number: {self.__routingNumber}")
 
     def check_bal(self,amt):
         if self.current_balance - amt >= self.minimum_balance: return True
@@ -60,4 +62,4 @@ class SavingsAccount(BankAccount):
 
     # Methods
     def calculate_interest(days=int):
-        BankAccount.current_balance += * (1 + (self.interest_rate/(1+(days/365))))
+        self.current_balance += self.current_balance * (1 + (self.interest_rate/(1+(days/365))))

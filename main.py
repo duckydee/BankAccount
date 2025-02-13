@@ -1,4 +1,7 @@
-import BankAccount, CheckingAccount, SavingsAccount
+import BankAccount
+import random
+
 
 # Testing the Checking Account
-jane = CheckingAccount.__init__("Jane",50,50,25) 
+jane = BankAccount.CheckingAccount("Jane",50,50,25) 
+jane.print_customer_information()
