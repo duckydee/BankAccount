@@ -12,8 +12,6 @@ class BankAccount():
         self.customer_name = name
         self.current_balance = bal
         self.minimum_balance = minbal
-        self._accountNumber = (random.random()*1024)+1
-        self.__routingNumber = (random.random()*1024)+1
 
     # Methods
     def deposit(self,amt):
@@ -42,11 +40,15 @@ class CheckingAccount(BankAccount):
         self.transfer_limit = limit
 
     # Methods
-    def deposit(self,amt):
-        if amt > self.transfer_limit:
+    def deposit(self,amt=int):
+        if amt <= self.transfer_limit :
             self.current_balance += amt
         else:
-            print("Transfer exceeds account limit.")
+            print("Transfer woukd exceed account limit.")
+
+    def withdraw(self,amt):
+        if BankAccount.check_bal(amt) and amt <= self.transfer_limit: self.current_balance -= amt
+        else: print("Balance has been overdrawn.")
             
 
 class SavingsAccount(BankAccount):
@@ -61,5 +63,8 @@ class SavingsAccount(BankAccount):
         self.interest_rate = rate
 
     # Methods
-    def calculate_interest(days=int):
-        self.current_balance += self.current_balance * (1 + (self.interest_rate/(1+(days/365))))
+    def calculate_interest(self,years=float):
+        interest = int(100*(self.current_balance * (1 + (self.interest_rate/(1+(years))))))
+        interest = float(interest/100)
+        self.current_balance += interest        
+        return interest
