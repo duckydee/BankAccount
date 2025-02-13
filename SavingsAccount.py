@@ -1,15 +1,10 @@
 class SavingsAccount(BankAccount):
     
+    # Constructor
     def __init__(self,name=str,bal=int,minbal=int,rate=float):
-        self.customer_name = name
-        self.current_balance = bal
-        self.minimum_balance = minbal
+        BankAccount.__init__(self,name,bal)
         self.interest_rate = rate
 
+    # Methods
     def calculate_interest(days=int):
         self.current_balance += (self.interest_rate*0.01)*days
-
-
-
-
-

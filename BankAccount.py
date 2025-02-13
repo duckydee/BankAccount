@@ -1,7 +1,7 @@
 class BankAccount():
     # Attributes
     bank_name = "Chase"
-
+    
     #Constructors
     def __init__(self,name=str,bal=int,minbal=int):
         self.customer_name = name
